@@ -1,0 +1,48 @@
+﻿<div class="row" ng-repeat="post in controller.posts"> <!--each row is a post-->
+
+    <!--small view-->
+    <!--Remember to add ng-show later-->
+    <div ng-show="!post.expanded">
+        <div class="col-md-3">
+            <img class="img-responsive" ng-src="{{post.pictureUrl}}" />
+            <br />
+            {{post.createdDate}}
+        </div>
+        <div class="col-md-9">
+            <div class="col-md-12">
+                {{post.owner.userName}}
+            </div>
+            <div class="col-md-12">
+                {{post.message}}
+            </div>
+            <br />
+            <div class="col-md-offset-10 col-md-2" ng-click="post.expanded = true">
+                more
+            </div>
+        </div>
+    </div>
+    <!--big view-->
+    <!--Remember to add ng-show later-->
+    <div ng-show="post.expanded">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <img class="img-responsive" ng-src="{{post.pictureUrl}}" />
+            </div>
+            <div class="col-md-2">
+                {{post.createdDate}}
+            </div>
+            <div class="col-md-offeset-8 col-md-2">
+                {{post.location}}
+            </div>
+        </div>
+        <div class="row">
+            {{post.message}}
+        </div>
+        <div class="row">
+            <span ng-repeat="cat in post.categories">{{cat}}</span>
+        </div>
+        <div class="col-md-offset-10 col-md-2" ng-click="post.expanded = false">
+            less
+        </div>
+    </div>
+</div>
