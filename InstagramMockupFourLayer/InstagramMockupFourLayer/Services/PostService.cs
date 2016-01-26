@@ -11,9 +11,9 @@ namespace InstagramMockupFourLayer.Services.Models
     public class PostService 
     {
         private PostRepository _postRepo;
-        private ApplicationUserManager _userRepo;
+        private UserRepository _userRepo;
 
-        public PostService(PostRepository postRepo, ApplicationUserManager userRepo)
+        public PostService(PostRepository postRepo, UserRepository userRepo)
         {
             _postRepo = postRepo;
             _userRepo = userRepo;
@@ -27,9 +27,12 @@ namespace InstagramMockupFourLayer.Services.Models
         /// <returns>A list of posts</returns>
         public IList<PostDTO> GetNewsFeed(string currentUser)
         {
-            var user = _userRepo.FindByName(currentUser);
+            var followings = (from u in _userRepo.GetFollowings(currentUser)
+                              select u.UserName).ToList();
+            followings.Add(currentUser);
+            
 
-            return (from p in _postRepo.GetNewsFeed(user)
+            return (from p in _postRepo.GetPostsForUsers(followings.ToArray())
                     select new PostDTO()
                     {
                         Location = p.Location?.City + ", " + p.Location?.State,

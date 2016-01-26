@@ -21,5 +21,6 @@ namespace InstagramMockupFourLayer.Presentation.Controllers
             //return _postService.GetNewsFeed(User.Identity.Name);
             return _postService.GetNewsFeed("illisian");
         }
+
     }
 }

@@ -210,6 +210,7 @@
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\GenericRepository.cs" />
     <Compile Include="Infrastructure\PostRepository.cs" />
+    <Compile Include="Infrastructure\UserRepository.cs" />
     <Compile Include="Migrations\201601251634586_initial.cs" />
     <Compile Include="Migrations\201601251634586_initial.Designer.cs">
       <DependentUpon>201601251634586_initial.cs</DependentUpon>
