@@ -46,5 +46,27 @@ namespace InstagramMockupFourLayer.Services.Models
                         }
                     }).ToList();
         }
+        public IList<PostDTO> GetPostsForUser(string userName)
+        {
+            if (_userRepo.UserExistsCheck(userName)) {
+                return (from p in _postRepo.GetPostsForUsers(userName)
+                        select new PostDTO()
+                        {
+                            Location = p.Location?.City + ", " + p.Location?.State,
+                            Message = p.Message,
+                            CreatedDate = p.CreatedDate,
+                            PictureUrl = p.Picture?.Url,
+                            Categories = (from c in p.Categories
+                                          select c.Name).ToList(),
+                            Owner = new ApplicationUserDTO()
+                            {
+                                UserName = p.Owner.UserName
+                            }
+                        }).ToList();
+
+            }
+            return null;
+        }
     }
 }
+            

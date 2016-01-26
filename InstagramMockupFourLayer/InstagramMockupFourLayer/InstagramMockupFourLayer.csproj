@@ -233,6 +233,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Presentation\Controllers\AccountController.cs" />
+    <Compile Include="Presentation\Controllers\FriendsController.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
     <Compile Include="Presentation\Controllers\PostsController.cs" />
     <Compile Include="Presentation\Controllers\ValuesController.cs" />
@@ -244,7 +245,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Identity\ApplicationOAuthProvider.cs" />
     <Compile Include="Presentation\Models\Identity\ChallengeResult.cs" />
+    <Compile Include="Services\FriendService.cs" />
     <Compile Include="Services\Models\ApplicationUserDTO.cs" />
+    <Compile Include="Services\Models\PictureDTO.cs" />
     <Compile Include="Services\Models\PostDTO.cs" />
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Startup.cs" />
@@ -265,7 +268,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Presentation\ngApp\views\friendsList.html" />
     <Content Include="Presentation\ngApp\views\newsFeed.html" />
+    <Content Include="Presentation\ngApp\views\registration.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -313,7 +318,10 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Presentation\ngApp\app.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\authController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\friendsListController.ts" />
     <TypeScriptCompile Include="Presentation\ngApp\controllers\newsFeedController.ts" />
+    <TypeScriptCompile Include="Presentation\ngApp\controllers\profileFeedController.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

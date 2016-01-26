@@ -39,6 +39,12 @@ namespace InstagramMockupFourLayer.Models
         public string Email { get; set; }
 
         [Required]
+        [MinLength(3, ErrorMessage = "Username must be at least 3 characters long")]
+        [RegularExpression(@"^\w+$", ErrorMessage = "Username can only contain letters, numbers and underscores!")]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

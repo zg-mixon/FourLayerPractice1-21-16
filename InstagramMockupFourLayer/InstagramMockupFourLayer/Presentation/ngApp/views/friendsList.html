@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <form role="search" ng-submit="controller.friends">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" ng-model="search">
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="row" ng-repeat="friend in controller.friends | filter: search">
+        <img ng-src="{{friend.ProfilePictureUrl}}"/>
+        {{friend.userName}}
+    </div>
+</div>

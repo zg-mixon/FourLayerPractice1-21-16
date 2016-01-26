@@ -2,7 +2,7 @@
 
     <!--small view-->
     <!--Remember to add ng-show later-->
-    <div ng-show="!post.expanded">
+    <div ng-show="!post.expanded" class="col-md-12">
         <div class="col-md-3">
             <img class="img-responsive" ng-src="{{post.pictureUrl}}" />
             <br />
@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-9">
             <div class="col-md-12">
-                {{post.owner.userName}}
+                <a href="#/profile/{{post.owner.userName}}">{{post.owner.userName}}</a>
             </div>
             <div class="col-md-12">
                 {{post.message}}
@@ -23,7 +23,7 @@
     </div>
     <!--big view-->
     <!--Remember to add ng-show later-->
-    <div ng-show="post.expanded">
+    <div ng-show="post.expanded" class="col-md-12">
         <div class="col-md-12">
             <div class="col-md-12">
                 <img class="img-responsive" ng-src="{{post.pictureUrl}}" />
@@ -35,10 +35,10 @@
                 {{post.location}}
             </div>
         </div>
-        <div class="row">
+        <div class="col-md-12">
             {{post.message}}
         </div>
-        <div class="row">
+        <div class="col-md-12">
             <span ng-repeat="cat in post.categories">{{cat}}</span>
         </div>
         <div class="col-md-offset-10 col-md-2" ng-click="post.expanded = false">

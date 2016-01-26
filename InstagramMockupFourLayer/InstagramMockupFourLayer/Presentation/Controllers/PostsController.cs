@@ -22,5 +22,18 @@ namespace InstagramMockupFourLayer.Presentation.Controllers
             return _postService.GetNewsFeed("illisian");
         }
 
+        [HttpGet]
+        [Route("api/posts/{username}")]
+        public IHttpActionResult Get(string username) {
+
+            var posts = _postService.GetPostsForUser(username);
+
+            if (posts != null) {
+                return Ok(posts);
+            }
+
+            return BadRequest();
+        }
+
     }
 }
