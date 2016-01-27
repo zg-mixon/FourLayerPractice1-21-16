@@ -25,7 +25,7 @@ namespace InstagramMockupFourLayer.Services
                     select new ApplicationUserDTO()
                     {
                         UserName = f.UserName,
-                        ProfilePictureUrl = f.ProfilePicture?.Url
+                        ProfilePictureUrl = f.ProfilePicture.Url
                     }).ToList();
 
 

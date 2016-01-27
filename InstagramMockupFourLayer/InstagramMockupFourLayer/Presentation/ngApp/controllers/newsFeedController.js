@@ -16,4 +16,3 @@ var InstagramMockupFourLayer;
         Controllers.NewsFeedController = NewsFeedController;
     })(Controllers = InstagramMockupFourLayer.Controllers || (InstagramMockupFourLayer.Controllers = {}));
 })(InstagramMockupFourLayer || (InstagramMockupFourLayer = {}));
-//# sourceMappingURL=newsFeedController.js.map

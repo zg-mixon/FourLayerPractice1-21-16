@@ -16,4 +16,3 @@ var InstagramMockupFourLayer;
         Controllers.FriendsListController = FriendsListController;
     })(Controllers = InstagramMockupFourLayer.Controllers || (InstagramMockupFourLayer.Controllers = {}));
 })(InstagramMockupFourLayer || (InstagramMockupFourLayer = {}));
-//# sourceMappingURL=friendsListController.js.map

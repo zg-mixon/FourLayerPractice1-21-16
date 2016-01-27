@@ -17,9 +17,10 @@ namespace InstagramMockupFourLayer.Presentation.Controllers
         }
 
         //Return a list of newsfeed posts
+        [Authorize]
         public IList<PostDTO> Get() {
             //return _postService.GetNewsFeed(User.Identity.Name);
-            return _postService.GetNewsFeed("illisian");
+            return _postService.GetNewsFeed(User.Identity.Name);
         }
 
         [HttpGet]

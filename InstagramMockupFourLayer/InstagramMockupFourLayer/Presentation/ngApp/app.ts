@@ -1,7 +1,31 @@
 ﻿namespace InstagramMockupFourLayer {
     
-    angular.module('InstagramMockupFourLayer', ['ngRoute'])
-        .config(function ($routeProvider: ng.route.IRouteProvider) {
+    //define module
+    angular.module('InstagramMockupFourLayer', ['ngRoute']);
+
+    angular.module('InstagramMockupFourLayer').factory('authInterceptor',
+        ($q: ng.IQService, $window: ng.IWindowService, $location: ng.ILocationService) => {
+            return {
+                request: (config) => {
+                    config.headers = config.headers || {};
+                    let token = $window.localStorage.getItem('token');
+                    if (token) {
+                        config.headers.Authorization = `Bearer ${token}`;
+                    }
+                    return config;
+                },
+                responseError: (response) => {
+                    if (response.status === 401) {
+                        $location.path('/login');
+                    }
+                    return response || $q.when(response);
+                }
+            };
+        });
+        
+
+    angular.module('InstagramMockupFourLayer')
+        .config(function ($routeProvider: ng.route.IRouteProvider, $httpProvider: ng.IHttpProvider) {
             
             $routeProvider.when('/', {
                 templateUrl: '/Presentation/ngApp/views/newsFeed.html',
@@ -22,6 +46,13 @@
                 templateUrl: '/Presentation/ngApp/views/friendsList.html',
                 controller: InstagramMockupFourLayer.Controllers.FriendsListController,
                 controllerAs: 'controller'
+            })
+            $routeProvider.when('/login', {
+                templateUrl: '/Presentation/ngApp/views/login.html',
+                controller: InstagramMockupFourLayer.Controllers.AuthController,
+                controllerAs: 'controller'
             });
+
+            $httpProvider.interceptors.push('authInterceptor');
         });
 }

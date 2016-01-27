@@ -17,17 +17,16 @@ namespace InstagramMockupFourLayer.Infrastructure
             _db = (ApplicationDbContext)db;
         }
 
-        public IList<ApplicationUser> GetFollowings(string username)
+        public IQueryable<ApplicationUser> GetFollowings(string username)
         {
-            return (from u in _db.Users
-                    .Include(u => u.ProfilePicture)
+            return from u in _db.Users
                     from following in u.Following
                     where u.UserName == username
-                    select following).ToList();
-                    
-
-
+                    select following;
         }
+
+
+
 
         public bool UserExistsCheck(string userName)
         {

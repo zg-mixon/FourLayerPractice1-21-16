@@ -17,4 +17,3 @@ var InstagramMockupFourLayer;
         Controllers.ProfileFeedController = ProfileFeedController;
     })(Controllers = InstagramMockupFourLayer.Controllers || (InstagramMockupFourLayer.Controllers = {}));
 })(InstagramMockupFourLayer || (InstagramMockupFourLayer = {}));
-//# sourceMappingURL=profileFeedController.js.map

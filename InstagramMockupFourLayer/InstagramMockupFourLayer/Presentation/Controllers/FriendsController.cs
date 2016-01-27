@@ -18,8 +18,9 @@ namespace InstagramMockupFourLayer.Presentation.Controllers
             _friendService = friendService;
         }
 
+        [Authorize]
         public IList<ApplicationUserDTO> Get() {
-            return _friendService.GetFriendsList("illisian");
+            return _friendService.GetFriendsList(User.Identity.Name);
         }
     }
 }
